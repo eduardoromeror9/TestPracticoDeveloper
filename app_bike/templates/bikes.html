@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santiago Bikes</title>
+	<link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+	<h1>Estaciones de Bike Santiago</h1>
+  {% if estaciones %}
+		<table>
+			<thead>
+				<tr>
+					<th>Paradero -- Ubicacion</th>
+					<th>Bicicletas disponibles</th>
+					<th>Plazas disponibles</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for estacion in estaciones %}
+					<tr>
+						<td>{{ estacion.name }}</td>
+						<td>{{ estacion.free_bikes }}</td>
+						<td>{{ estacion.empty_slots }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<p>No hay datos de estaciones disponibles.</p>
+	{% endif %}
+</body>
+</html>
